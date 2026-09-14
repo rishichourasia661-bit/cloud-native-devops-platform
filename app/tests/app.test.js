@@ -73,3 +73,4 @@ test("DELETE /api/tasks/2 should delete a task", async () => {
   expect(response.statusCode).toBe(200);
   expect(response.body.id).toBe(2);
 });
+});
