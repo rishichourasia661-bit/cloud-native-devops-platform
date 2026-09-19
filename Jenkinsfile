@@ -28,9 +28,7 @@ pipeline {
                 }
             }
         }
-    }
-}
-        
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t cloud-native-devops-app:${BUILD_NUMBER} .'
