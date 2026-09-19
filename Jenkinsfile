@@ -3,6 +3,9 @@ pipeline {
 
     environment {
         PATH = "/usr/local/bin:${env.PATH}"
+        AWS_REGION = "ca-central-1"
+        ECR_REGISTRY = "497535504649.dkr.ecr.ca-central-1.amazonaws.com"
+        ECR_REPOSITORY = "cloud-native-devops-app"
     }
 
     stages {
@@ -32,6 +35,23 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t cloud-native-devops-app:${BUILD_NUMBER} .'
+            }
+        }
+
+        stage('Push Image to ECR') {
+            steps {
+                sh '''
+                    aws ecr get-login-password --region ${AWS_REGION} | \
+                    docker login \
+                    --username AWS \
+                    --password-stdin ${ECR_REGISTRY}
+
+                    docker tag cloud-native-devops-app:${BUILD_NUMBER} \
+                    ${ECR_REGISTRY}/${ECR_REPOSITORY}:${BUILD_NUMBER}
+
+                    docker push \
+                    ${ECR_REGISTRY}/${ECR_REPOSITORY}:${BUILD_NUMBER}
+                '''
             }
         }
     }
