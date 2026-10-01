@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: cloud-native-devops-app
-  tag: "does-not-exist"
+  tag: "15"
   pullPolicy: IfNotPresent
 
 service:
