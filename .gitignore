@@ -9,3 +9,5 @@ crash.log
 crash.*.log
 .venv/
 __pycache__/
+
+ai-devops-assistant/.env
