@@ -20,6 +20,9 @@ spec:
         app: cloud-native-devops-app
 
     spec:
+      imagePullSecrets:
+        - name: ecr-registry
+
       containers:
         - name: cloud-native-devops-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
