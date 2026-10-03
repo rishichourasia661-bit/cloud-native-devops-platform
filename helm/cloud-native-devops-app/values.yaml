@@ -1,10 +1,9 @@
 replicaCount: 3
 
 image:
-  repository: cloud-native-devops-app
+  repository: 497535504649.dkr.ecr.ca-central-1.amazonaws.com/cloud-native-devops-app
   tag: "15"
   pullPolicy: IfNotPresent
-
 service:
   type: NodePort
   port: 3000
