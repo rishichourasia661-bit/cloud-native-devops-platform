@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: 497535504649.dkr.ecr.ca-central-1.amazonaws.com/cloud-native-devops-app
-  tag: "20"
+  tag: "does-not-exist"
   pullPolicy: IfNotPresent
 service:
   type: NodePort
