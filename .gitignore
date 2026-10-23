@@ -11,3 +11,8 @@ crash.*.log
 __pycache__/
 
 ai-devops-assistant/.env
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
